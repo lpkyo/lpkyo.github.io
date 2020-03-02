@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>前端作业</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/scripts.js"></script>
+  </head>
+
+  <body>
+    <h2>我的银行卡</h2>
+    <div>
+      <form action="" id="form1">
+        <div>
+          <table>
+            <tr>
+              <td>
+                <h4>
+                  姓名：
+                </h4>
+              </td>
+              <td>
+                <input
+                  onblur="checkName()"
+                  class="userInf"
+                  style="height:32px;width: 160px;"
+                  name="Name"
+                  type="text"
+                  placeholder="请输入姓名"
+                />
+              </td>
+              <td><span id="noName" class="span_1"></span></td>
+            </tr>
+            <tr>
+              <td>
+                <h4 id="sex">
+                  性别：
+                </h4>
+              </td>
+              <td>
+                <input
+                  class="userInf"
+                  name="Sex"
+                  type="radio"
+                  value="男"
+                  checked
+                />男
+                <input class="userInf" name="Sex" type="radio" value="女" />女
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>
+                  年龄：
+                </h4>
+              </td>
+              <td>
+                <input
+                  type="button"
+                  onclick="ageDown()"
+                  value="-"
+                  style="width: 50px; height: 38px; border: 2px white;"
+                />
+                <input
+                  class="userInf"
+                  id="age"
+                  name="Age"
+                  value="23"
+                  type="text"
+                  style="text-align: center; width: 50px; height: 32px;"
+                />
+                <input
+                  type="button"
+                  onclick="ageUp()"
+                  value="+"
+                  style="width: 50px; height: 38px; border: 2px white;"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h4>身份证：</h4>
+              </td>
+              <td>
+                <input
+                  onblur="checkId()"
+                  style="height:32px ;width:160px"
+                  name="Id"
+                  type="text"
+                  placeholder="请输入18位身份证号"
+                />
+              </td>
+              <td><span id="noId" class="span_1"></span></td>
+            </tr>
+            <tr>
+              <td>
+                <h4>
+                  工作单位：
+                </h4>
+              </td>
+              <td>
+                <input
+                  onblur="checkWork()"
+                  style="height:32px ;width:160px"
+                  name="Work"
+                  type="text"
+                  placeholder="请输入工作单位"
+                />
+              </td>
+              <td><span id="noWork" class="span_1"></span></td>
+            </tr>
+            <tr>
+              <td>
+                <h4>家庭住址：</h4>
+              </td>
+              <td>
+                <input
+                  onblur="if(value ==''){document.querySelector('#noHome').innerText='家庭住址不能为空'}else{document.querySelector('#noHome').innerText=''}"
+                  style="height:32px;width:160px"
+                  name="Home"
+                  type="text"
+                  placeholder="请输入家庭住址"
+                />
+              </td>
+              <td><span id="noHome" class="span_1"></span></td>
+            </tr>
+            <tr>
+              <td>
+                <h4>银行卡号：</h4>
+              </td>
+              <td>
+                <input
+                  oninput="document.querySelector('#zjyhk').removeAttribute('disabled')"
+                  onblur="if((value =='')|(value.length!=19)){document.querySelector('#noCard').innerText='银行卡号为空或错误';document.querySelector('#zjyhk').setAttribute('disabled','disabled')}else{document.querySelector('#noCard').innerText='';document.querySelector('#zjyhk').removeAttribute('disabled')}"
+                  id="card"
+                  style="height:32px;width:160px"
+                  name="Card"
+                  type="text"
+                  placeholder="请输入19位银行卡号"
+                />
+              </td>
+              <td>
+                <input
+                  id="zjyhk"
+                  class="button_1"
+                  type="button"
+                  value="增加银行卡"
+                  onclick="cardSave();cardRead();inputClear();"
+                />
+              </td>
+              <td><span id="noCard" class="span_1"> </span></td>
+            </tr>
+            <tr>
+              <td>
+                <h4>银行卡：</h4>
+              </td>
+              <td>
+                <p id="cards"></p>
+                <script>
+                  cardRead();
+                </script>
+              </td>
+              <td></td>
+            </tr>
+          </table>
+
+          <input
+            class="button_1"
+            type="button"
+            onclick="checkAndSave();"
+            value="检查并保存数据"
+          />
+          <br /><br />
+          <h4>测试用按钮</h4>
+          <input
+            class="button_1"
+            type="button"
+            onclick="cssj()"
+            value="测试数据"
+          />
+          <input
+            class="button_1"
+            type="button"
+            onclick="window.open('index3.html')"
+            value="跳转页面2"
+          />
+        </div>
+      </form>
+    </div>
+
+    <br />
+  </body>
+</html>

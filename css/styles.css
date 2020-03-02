@@ -1,0 +1,14 @@
+html,
+body {
+    height: 100%;
+}
+
+.button_1 {
+    height: 38px;
+}
+
+.span_1 {
+    color: rgba(226, 32, 32, 0.425);
+    font-family: 'Times New Roman', Times, serif;
+}
+
